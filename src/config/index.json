@@ -1,0 +1,51 @@
+{
+  "fetch": {
+    "API_NAME": "api",
+    "BASE_URL": "/v1/api"
+  },
+  "image": {
+    "ALT": "network error"
+  },
+  "menus": [
+    {
+      "index": "/pages/home/index",
+      "title": "主页",
+      "icon": "home"
+    },
+    {
+      "index": "/pages/home/house",
+      "title": "房源",
+      "icon": "house"
+    },
+    {
+      "index": "/pages/home/client",
+      "title": "客源",
+      "icon": "client"
+    },
+    {
+      "index": "/pages/home/market",
+      "title": "营销",
+      "icon": "market"
+    },
+    {
+      "index": "/pages/home/deal",
+      "title": "交易",
+      "icon": "deal"
+    },
+    {
+      "index": "/pages/home/data",
+      "title": "数据",
+      "icon": "data"
+    },
+    {
+      "index": "/pages/home/personnel",
+      "title": "人事",
+      "icon": "personnel"
+    },
+    {
+      "index": "/pages/home/system",
+      "title": "系统",
+      "icon": "system"
+    }
+  ]
+}

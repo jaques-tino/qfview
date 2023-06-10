@@ -1,0 +1,47 @@
+.tino-flex {
+  display: flex;
+}
+
+.tino-flex-row {
+  flex-direction: row;
+}
+
+.tino-flex-col {
+  flex-direction: column;
+}
+
+.tino-row-start {
+  justify-content: flex-start;
+}
+
+.tino-row-end {
+  justify-content: flex-end;
+}
+
+.tino-row-center {
+  justify-content: center;
+}
+
+.tino-row-between {
+  justify-content: space-between;
+}
+
+.tino-row-around {
+  justify-content: space-around;
+}
+
+.tino-row-evenly {
+  justify-content: space-evenly;
+}
+
+.tino-col-start {
+  align-items: flex-start;
+}
+
+.tino-col-end {
+  align-items: flex-end;
+}
+
+.tino-col-center {
+  align-items: center;
+}

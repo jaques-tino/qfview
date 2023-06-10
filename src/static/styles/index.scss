@@ -1,0 +1,39 @@
+body {
+  color: #333;
+  font-size: 14px;
+}
+
+:root {
+  --tino-color-white: #fff;
+  --tino-color-black: #000;
+}
+
+.dart {
+  --tino-text-color: rgb(183, 186, 196);
+  --tino-text-color-active: rgb(56, 187, 185);
+  --tino-bg-color: rgb(7, 14, 14);
+  --tino-bg-color-active: rgb(36, 42, 49);
+  --tino-lesser-text-color: rgb(91, 91, 91);
+  --tino-border-color: rgb(60, 65, 63);
+  --tino-input-bg-color: rgb(36, 42, 49);
+  --tino-bg-color-overlay: rgb(26, 30, 31);
+  --el-bg-color-overlay: var(--tino-bg-color-overlay);
+  --el-border-color-light: var(--tino-border-color);
+  --el-fill-color-light: var(--tino-bg-color-active);
+  --el-color-primary: var(--tino-text-color-active);
+}
+
+.light {
+  --tino-text-color: #333333;
+  --tino-text-color-active: var(--tino-color-white);
+  --tino-bg-color: #fcfcfc;
+  --tino-bg-color-active: #5a6eee;
+  --tino-lesser-text-color: rgb(91, 91, 91);
+  --tino-border-color: rgb(60, 65, 63);
+  --tino-input-bg-color: rgb(36, 42, 49);
+  --tino-bg-color-overlay: var(--tino-color-white);
+  --el-bg-color-overlay: var(--tino-bg-color-overlay);
+  --el-border-color-light: var(--tino-border-color);
+  --el-fill-color-light: var(--tino-bg-color-active);
+  --el-color-primary: var(--tino-text-color-active);
+}
