@@ -158,24 +158,32 @@ const operators2 = [
   }
 ]
 
-const option = {
+const option: echarts.EChartsOption = {
   tooltip: {
     trigger: 'axis',
-    axisPointer: {
-      type: 'shadow'
+    formatter: (params) => {
+      if (Array.isArray(params)) {
+        const total = params.reduce((total, item) => total += +item.value, 0)
+        const content = `
+          <strong>${params[0].name}合计：${total} ¥</strong>
+          ${params.reduce((html, item) => html += '<div style="margin-top: 10px;font-size: 12px;color: '+ item.color +'">' + item.seriesName + '：' + item.value + ' ¥ / ' + (+(+item.value / total).toFixed(2) * 100).toFixed(0) + '%</div>', '')}
+        `
+        return content
+      }
+      return params.name
     }
   },
-  legend: {},
   grid: {
     left: '3%',
     right: '4%',
     bottom: '3%',
+    top: '3%',
     containLabel: true
   },
   xAxis: [
     {
       type: 'category',
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
     }
   ],
   yAxis: [
@@ -185,90 +193,44 @@ const option = {
   ],
   series: [
     {
-      name: 'Direct',
-      type: 'bar',
-      emphasis: {
-        focus: 'series'
-      },
-      data: [320, 332, 301, 334, 390, 330, 320]
-    },
-    {
-      name: 'Email',
+      name: '二手',
       type: 'bar',
       stack: 'Ad',
       emphasis: {
         focus: 'series'
       },
-      data: [120, 132, 101, 134, 90, 230, 210]
+      data: [120500, 881100, 174500, 341960, 30300],
+      color: '#ed7d59'
     },
     {
-      name: 'Union Ads',
+      name: '租房',
       type: 'bar',
       stack: 'Ad',
       emphasis: {
         focus: 'series'
       },
-      data: [220, 182, 191, 234, 290, 330, 310]
+      data: [117660, 122735, 164655, 151340, 150135, 45880],
+      color: '#528fe4'
     },
     {
-      name: 'Video Ads',
+      name: '新房',
       type: 'bar',
       stack: 'Ad',
       emphasis: {
         focus: 'series'
       },
-      data: [150, 232, 201, 154, 190, 330, 410]
+      data: [577509, 997164, 577479, 467098, 1960708],
+      color: '#f5c244'
     },
     {
-      name: 'Search Engine',
+      name: '其它',
       type: 'bar',
-      data: [862, 1018, 964, 1026, 1679, 1600, 1570],
+      stack: 'Ad',
       emphasis: {
         focus: 'series'
       },
-      markLine: {
-        lineStyle: {
-          type: 'dashed'
-        },
-        data: [[{ type: 'min' }, { type: 'max' }]]
-      }
-    },
-    {
-      name: 'Baidu',
-      type: 'bar',
-      barWidth: 5,
-      stack: 'Search Engine',
-      emphasis: {
-        focus: 'series'
-      },
-      data: [620, 732, 701, 734, 1090, 1130, 1120]
-    },
-    {
-      name: 'Google',
-      type: 'bar',
-      stack: 'Search Engine',
-      emphasis: {
-        focus: 'series'
-      },
-      data: [120, 132, 101, 134, 290, 230, 220]
-    },
-    {
-      name: 'Bing',
-      type: 'bar',
-      stack: 'Search Engine',
-      emphasis: {
-        focus: 'series'
-      },
-      data: [60, 72, 71, 74, 190, 130, 110]
-    },
-    {
-      name: 'Others',
-      type: 'bar',
-      stack: 'Search Engine',
-      emphasis: {
-        focus: 'series'
-      },
-      data: [62, 82, 91, 84, 109, 110, 120]
+      data: [],
+      color: '#88c7f3'
     }
   ]
 }
@@ -280,7 +242,7 @@ const dealPanelRef = ref()
 const mychart = ref<echarts.EChartsType>()
 
 onMounted(() => {
-  mychart.value = echarts.init(dealPanelRef.value)
+  mychart.value = markRaw(echarts.init(dealPanelRef.value))
 
   mychart.value.setOption(option)
 })
